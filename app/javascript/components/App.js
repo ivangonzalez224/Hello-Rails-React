@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Greet from './Greet';
+import Greetings from './Greetings';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Greet />} />
+        <Route path="/" element={<Greetings />} />
       </Routes>
     </Router>
   );

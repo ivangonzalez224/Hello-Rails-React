@@ -8,15 +8,16 @@ const Greetings = () => {
   const { greetingItem } = useSelector((store) => store.greetings);
 
   useEffect(() => {
-    if (greetingItem.length === 0) {
+    if (greetingItem === '') {
       dispatch(getGreetings());
     }
   });
 
   return (
     <div className="main-container">
-      {error && <p className="errorMsg">{error}</p>}
-      {greetingItem && <p className="greetingMsg">{greetingItem}</p>}
+      {/* {error && <p className="errorMsg">{error}</p>}
+      {greetingItem && <p className="greetingMsg">{greetingItem}</p>} */}
+      {greetingItem}
     </div>
   );
 };
