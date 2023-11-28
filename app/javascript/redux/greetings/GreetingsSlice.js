@@ -17,7 +17,7 @@ export const getGreetings = createAsyncThunk(
 );
 
 const initialState = {
-  greetingItem: 'nothing',
+  greetingItem: 'Loading...',
   error: '',
 };
 

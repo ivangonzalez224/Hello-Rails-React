@@ -7,7 +7,7 @@ const Greetings = () => {
   const dispatch = useDispatch();
   const { greetingItem } = useSelector((store) => store.greetings);
   useEffect(() => {
-    if (greetingItem === 'nothing') {
+    if (greetingItem === 'Loading...') {
       dispatch(getGreetings());
     }
   });
