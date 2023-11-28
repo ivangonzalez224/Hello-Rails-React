@@ -2,13 +2,13 @@ import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getGreetings = createAsyncThunk(
-  'greet/getGreetings',
+  'greetings/getGreetings',
   async (arg, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        '/api/greetings/pick',
+        'http://127.0.0.1:3000/api/greetings/pick',
       );
-      const endData = response.data.data;
+      const endData = response.data.message;
       return endData;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -17,7 +17,7 @@ export const getGreetings = createAsyncThunk(
 );
 
 const initialState = {
-  greetingItem: '',
+  greetingItem: 'nothing',
   error: '',
 };
 
@@ -28,6 +28,7 @@ const greetingsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getGreetings.fulfilled, (state, action) => {
       state.greetingItem = action.payload;
+      
     });
     builder.addCase(getGreetings.rejected, (state, action) => {
       state.error = action.payload;
